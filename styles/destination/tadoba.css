@@ -5,13 +5,14 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
 }
 
 /* Navigation styles (keeping original) */
+/* Navigation styles */
 .nav-container {
   position: fixed;
   bottom: 20px;
@@ -20,18 +21,6 @@ body {
   z-index: 1000;
   padding: 0 1rem;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  animation: navSlideUp 1s ease-out 0.5s both;
-}
-
-@keyframes navSlideUp {
-  from {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .nav-container.top {
@@ -114,6 +103,149 @@ body {
     rgba(74, 222, 128, 0.3),
     rgba(34, 197, 94, 0.3)
   );
+}
+
+/* Mobile hamburger menu */
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1rem 2rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1002;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu .nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu .nav-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.4),
+    rgba(34, 197, 94, 0.5)
+  );
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+}
+
+.mobile-menu .nav-item:hover::before {
+  transform: scaleX(1);
+}
+
+.mobile-menu .nav-item.active {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.3),
+    rgba(34, 197, 94, 0.3)
+  );
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+  }
+
+  .nav-container {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-item {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .bottom-nav {
+    padding: 0.3rem;
+  }
+
+  .nav-item {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.1rem;
+  }
 }
 
 /* Hero Section */
@@ -531,5 +663,341 @@ body {
   .nav-item {
     padding: 0.8rem 0.5rem;
     font-size: 0.85rem;
+  }
+}
+/* Add these responsive styles to your existing CSS */
+
+/* Mobile Navigation Improvements */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 0.5rem;
+    bottom: 10px;
+  }
+
+  .bottom-nav {
+    padding: 0.4rem;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .nav-item {
+    padding: 0.6rem 0.3rem;
+    font-size: 0.75rem;
+    min-width: 60px;
+    flex: none;
+  }
+
+  .nav-container.top {
+    padding: 0 1rem;
+  }
+
+  .nav-container.top .bottom-nav {
+    padding: 0.8rem 0;
+  }
+}
+
+/* Hero Section Responsive */
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    padding: 60px 15px 80px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    width: 200px;
+  }
+
+  .logo {
+    width: 140px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
+
+/* Main Content Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 60px 15px;
+  }
+
+  .section {
+    margin-bottom: 60px;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Highlights Grid Responsive */
+@media (max-width: 768px) {
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .highlight-card {
+    padding: 25px 20px;
+    margin: 0 5px;
+  }
+
+  .highlight-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .highlight-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Map Section Responsive */
+@media (max-width: 768px) {
+  .map-section {
+    padding: 60px 15px;
+    margin: 0 -15px;
+  }
+
+  .map-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .map-info h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .map-info h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .location-details {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 15px 0;
+  }
+
+  .detail-icon {
+    margin-bottom: 8px;
+    margin-right: 0;
+  }
+
+  .map-visual img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-info p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .detail-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 1rem 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .logo-footer {
+    width: 200px;
+    margin-left: 0;
+  }
+
+  .brand-description {
+    font-size: 0.9rem;
+  }
+
+  .contact-box {
+    grid-column: 1;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .contact-box h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact-number a {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 0 0.5rem;
+  }
+
+  .logo-footer {
+    width: 180px;
+  }
+
+  .brand-description {
+    font-size: 0.85rem;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+  }
+
+  .contact-box {
+    padding: 0.8rem;
+  }
+
+  .contact-box h3 {
+    font-size: 1rem;
+  }
+
+  .contact-number a {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 360px) {
+  .nav-item {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.2rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 180px;
+    padding: 10px 20px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .highlight-card {
+    padding: 20px 15px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: 100vh;
+    padding: 40px 15px 60px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+
+  .scroll-indicator {
+    bottom: 15px;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+  .bottom-nav {
+    padding: 0.3rem;
+  }
+
+  .nav-item {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.1rem;
+  }
+
+  .main-content {
+    padding: 40px 10px;
+  }
+
+  .map-section {
+    padding: 40px 10px;
+    margin: 0 -10px;
+  }
+
+  .location-details {
+    padding: 15px;
   }
 }
