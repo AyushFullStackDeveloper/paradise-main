@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParadiseTrails - Feel the splendor of nature</title>
+    <link rel="icon"
+        href="https://images.vexels.com/media/users/3/312344/isolated/preview/9644600280ae32a366400a8c9d9030f7-green-leaves-on-a-safari-expedition.png"
+        type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles/trips.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
+    <script src="./trips.js"></script>
+</head>
+
+<body>
+    <!-- LOGO -->
+    <div class="logo" id="home">
+        <a href="../index.html">
+            <img src="../assets/images/logo/paradse-logo.png" alt="Paradise Trails Logo"></a>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <div class="nav-container" id="bottomNav">
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item" data-page="home">Home</a>
+            <a href="home.html#destinations" class="nav-item" data-page="destinations">Destinations</a>
+            <a href="#trips" class="nav-item active" data-page="about">Trips</a>
+            <a href="gallery.html#gallery" class="nav-item" data-page="gallery">Gallery</a>
+            <a href="home.html#about" class="nav-item" data-page="about">About</a>
+            <a href="../pages/contact.html" class="nav-item" data-page="contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🌿 Our Safari Trips</h1>
+            <p>Discover thrilling jungle adventures designed to connect you with nature's raw beauty</p>
+            <a href="#trips" class="cta-button">View more</a>
+        </div>
+    </section>
+
+    <!-- Featured Trips -->
+    <section class="trips" id="trips">
+        <div class="container">
+            <div class="section-header-trips">
+                <h2>Featured Safari Experiences</h2>
+                <p>Carefully curated wildlife adventures designed for unforgettable encounters with nature</p>
+            </div>
+
+            <div class="trips-grid">
+                <div class="trip-card">
+                    <img src="https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=800" alt="Leopard Safari"
+                        class="trip-image">
+                    <div class="trip-content">
+                        <h3 class="trip-title">Wilpattu Leopard Paradise</h3>
+                        <!-- <p class="trip-description">Experience close encounters with Sri Lanka's elusive leopards in
+                            their natural habitat with overnight accommodation inside the park.</p> -->
+                        <div class="trip-features">
+                            <span class="feature-tag">Leopard Tracking</span>
+                            <span class="feature-tag">Overnight Stay</span>
+                            <span class="feature-tag">Photography Guide</span>
+                        </div>
+                        <div class="trip-footer">
+                            <div class="trip-price">LKR 26,500</div>
+                            <button class="btn-secondary" onclick="openModal(1)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trip-card">
+                    <img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=800" alt="Multi-park Safari"
+                        class="trip-image">
+                    <div class="trip-content">
+                        <h3 class="trip-title">Ultimate Wildlife Expedition</h3>
+                        <!-- <p class="trip-description">7-day comprehensive journey through multiple national parks
+                            including Yala, Udawalawe, and Bundala with luxury accommodations.</p> -->
+                        <div class="trip-features">
+                            <span class="feature-tag">Multi-Park Tour</span>
+                            <span class="feature-tag">7 Days</span>
+                            <span class="feature-tag">Luxury Resorts</span>
+                        </div>
+                        <div class="trip-footer">
+                            <div class="trip-price">LKR 415,000</div>
+                            <button class="btn-secondary" onclick="openModal(2)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trip-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800" alt="Walking Safari"
+                        class="trip-image">
+                    <div class="trip-content">
+                        <h3 class="trip-title">Exclusive Walking Safari</h3>
+                        <!-- <p class="trip-description">Intimate walking safari with expert trackers offering unique
+                            wildlife encounters and bush lunch experience in small groups.</p> -->
+                        <div class="trip-features">
+                            <span class="feature-tag">Walking Safari</span>
+                            <span class="feature-tag">Small Groups</span>
+                            <span class="feature-tag">Bush Lunch</span>
+                        </div>
+                        <div class="trip-footer">
+                            <div class="trip-price">LKR 35,000</div>
+                            <button class="btn-secondary" onclick="openModal(3)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Trips -->
+    <section class="recent-trips">
+        <div class="container">
+            <div class="section-header-trips">
+                <h2>Recent Adventures</h2>
+                <p>Latest wildlife encounters and successful safari expeditions by our guests</p>
+            </div>
+
+            <div class="recent-grid">
+                <div class="recent-card">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600" alt="Recent Trip"
+                        class="recent-image">
+                    <div class="recent-content">
+                        <div class="recent-date">June 15, 2025</div>
+                        <div class="recent-title">Leopard Family Spotted at Yala</div>
+                        <div class="recent-location">Yala National Park Block 1</div>
+                    </div>
+                </div>
+
+                <div class="recent-card">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d040a94?w=600" alt="Recent Trip"
+                        class="recent-image">
+                    <div class="recent-content">
+                        <div class="recent-date">June 12, 2025</div>
+                        <div class="recent-title">Elephant Herd Migration</div>
+                        <div class="recent-location">Udawalawe National Park</div>
+                    </div>
+                </div>
+
+                <div class="recent-card">
+                    <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?w=600" alt="Recent Trip"
+                        class="recent-image">
+                    <div class="recent-content">
+                        <div class="recent-date">June 10, 2025</div>
+                        <div class="recent-title">Rare Bird Species Sighting</div>
+                        <div class="recent-location">Bundala National Park</div>
+                    </div>
+                </div>
+
+                <div class="recent-card">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600" alt="Recent Trip"
+                        class="recent-image">
+                    <div class="recent-content">
+                        <div class="recent-date">June 8, 2025</div>
+                        <div class="recent-title">Sloth Bear Cubs Adventure</div>
+                        <div class="recent-location">Wilpattu National Park</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img id="modalImage" class="modal-image" src="" alt="">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <div id="modalPrice" class="modal-price"></div>
+
+                <div class="modal-section">
+                    <h3>Itinerary</h3>
+                    <ul id="modalItinerary" class="modal-list"></ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Highlights</h3>
+                    <ul id="modalHighlights" class="modal-list"></ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>What's Included</h3>
+                    <ul id="modalIncludes" class="modal-list"></ul>
+                </div>
+
+                <button class="btn-book" onclick="bookTrip()">Book This Adventure</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

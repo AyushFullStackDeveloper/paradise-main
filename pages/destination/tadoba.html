@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tadoba National Park - Wild Adventures Await</title>
+    <style>
+     
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="nav-container" id="bottomNav">
+      <nav class="bottom-nav">
+        <a href="#home" class="nav-item active" data-page="home">Home</a>
+        <a href="#destinations" class="nav-item" data-page="destinations"
+          >Destinations</a
+        >
+        <a href="trips.html" class="nav-item" data-page="about">Trips</a>
+        <a href="#gallery" class="nav-item" data-page="gallery">Gallery</a>
+        <a href="#about" class="nav-item" data-page="about">About</a>
+        <a href="#contact" class="nav-item" data-page="contact">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1>TADOBA</h1>
+        <p class="hero-subtitle">Where Tigers Roam Free & Adventure Begins</p>
+        <div class="cta-group">
+          <a href="#destinations" class="cta-button">Explore Now</a>
+          <a href="#about" class="cta-button cta-secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Plan Your Adventure</h2>
+        <p
+          style="
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+          "
+        >
+          Ready to witness the wild? Contact us for personalized safari
+          experiences and accommodation bookings.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card scroll-reveal">
+            <h3>📞 Reservations</h3>
+            <p>+91 7172 255 368</p>
+          </div>
+          <div class="contact-card scroll-reveal">
+            <h3>✉️ Email</h3>
+            <p>wild@tadoba.com</p>
+          </div>
+          <div class="contact-card scroll-reveal">
+            <h3>📍 Location</h3>
+            <p>Chandrapur, Maharashtra</p>
+          </div>
+          <div class="contact-card scroll-reveal">
+            <h3>🕒 Safari Times</h3>
+            <p>6:00 AM & 2:30 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        // Sticky Navigation Handler
+        const navContainer = document.getElementById("bottomNav");
+
+        function handleStickyNav() {
+          if (!navContainer) return;
+
+          const currentScrollY = window.scrollY;
+          const isScrollingDown = currentScrollY > lastScrollY;
+
+          if (currentScrollY > 100) {
+            navContainer.classList.add("top");
+            navContainer.style.transform =
+              isScrollingDown && currentScrollY > 200
+                ? "translateY(-100%)"
+                : "translateY(0)";
+          } else {
+            navContainer.classList.remove("top");
+            navContainer.style.transform = "translateY(0)";
+          }
+
+          lastScrollY = currentScrollY;
+        }
+
+        window.addEventListener("scroll", () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              handleStickyNav();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
