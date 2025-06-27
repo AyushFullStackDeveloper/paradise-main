@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tadoba National Park - Wildlife Destination</title>
+    <link rel="stylesheet" href="../../styles/destination/pench.css">
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <a href="../home.html" class="logo"></a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="../home.html" class="nav-item">Home</a>
+      <a href="../home.html#destination" class="nav-item active">Destinations</a>
+      <a href="../trips.html" class="nav-item">Trips</a>
+      <a href="../../pages/gallery.html" class="nav-item">Gallery</a>
+      <a href="../home.html#about" class="nav-item">About</a>
+      <a href="../contact.html" class="nav-item">Contact</a>
+    </nav>
+
+    <!-- Desktop Navigation Bar -->
+    <div class="nav-container" id="bottomNav">
+      <nav class="bottom-nav">
+        <a href="../home.html" class="nav-item">Home</a>
+        <a href="../home.html#destination" class="nav-item active">Destinations</a>
+        <a href="../trips.html" class="nav-item">Trips</a>
+        <a href="../../pages/gallery.html" class="nav-item">Gallery</a>
+        <a href="../home.html#about" class="nav-item">About</a>
+        <a href="../contact.html" class="nav-item">Contact</a>
+      </nav>
+    </div>
+
+    <section class="content-section section-1">
+      Content Section 1
+    </section>
+    
+    <section class="content-section section-2">
+      Content Section 2
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navContainer = document.getElementById("bottomNav");
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+        let lastScrollY = window.scrollY;
+
+        // Desktop navigation scroll functionality
+        function onScroll() {
+          const currentY = window.scrollY;
+
+          // Sticky navigation
+          if (navContainer) {
+            navContainer.classList.toggle("top", currentY > 100);
+            navContainer.style.transform =
+              currentY > 200 && currentY > lastScrollY
+                ? "translateY(-100%)"
+                : "translateY(0)";
+          }
+
+          lastScrollY = currentY;
+        }
+
+        window.addEventListener("scroll", onScroll);
+
+        // Mobile menu toggle
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
+            document.body.style.overflow = mobileMenu.classList.contains("active") ? "hidden" : "auto";
+          });
+
+          // Close menu when clicking nav items
+          document.querySelectorAll(".mobile-menu .nav-item").forEach(item => {
+            item.addEventListener("click", () => {
+              hamburger.classList.remove("active");
+              mobileMenu.classList.remove("active");
+              document.body.style.overflow = "auto";
+            });
+          });
+
+          // Close menu when clicking outside
+          mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) {
+              hamburger.classList.remove("active");
+              mobileMenu.classList.remove("active");
+              document.body.style.overflow = "auto";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
